@@ -100,6 +100,7 @@
             this.difference.Text = "-";
             this.difference.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.difference.UseVisualStyleBackColor = true;
+            this.difference.Click += new System.EventHandler(this.difference_Click);
             this.difference.MouseEnter += new System.EventHandler(this.difference_MouseEnter);
             this.difference.MouseLeave += new System.EventHandler(this.difference_MouseLeave);
             // 

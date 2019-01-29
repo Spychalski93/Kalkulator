@@ -15,6 +15,8 @@ namespace kalkulator_1._0
         public string instruction = "Najedż kursorem myszy na wybrane działanie" +
                 " i przeczytaj szczegóły. Następnie wpisz dwie liczby i wybierz" +
                 " działanie.";
+
+
         public Form1()
         {
             InitializeComponent();
@@ -46,6 +48,11 @@ namespace kalkulator_1._0
             float A = float.Parse(textBoxNumberA.Text);
             float B = float.Parse(textBoxNumberB.Text);
             textBoxScore.Text = "" + MathematicalOperation.Addition(A,B);
+        }
+
+        private void difference_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
