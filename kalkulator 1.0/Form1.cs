@@ -12,16 +12,30 @@ namespace kalkulator_1._0
 {
     public partial class Form1 : Form
     {
-        public string instruction = "Najedż kursorem myszy na wybrane działanie" +
+        /// <summary>
+        /// Treść instrukcji wyświetlanej domyślnie w <see cref="textBoxInstruction"/>
+        /// </summary>
+        public string instructionBegin = "Najedż kursorem myszy na wybrane działanie" +
                 " i przeczytaj szczegóły. Następnie wpisz dwie liczby i wybierz" +
-                " działanie.";
-
+                " działanie.";        
 
         public Form1()
         {
             InitializeComponent();
         }
+      
+        #region Metody pomocnicze
+        private static void CharacterRestrictions(KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '0' && e.KeyChar <= '9'
+                                        || e.KeyChar == 8 || e.KeyChar == ',')
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+        #endregion  
 
+        #region MauseEnter     
         private void sum_MouseEnter(object sender, EventArgs e)
         {
             textBoxInstruction.Text = MathematicalOperation.informationAddition;
@@ -31,28 +45,46 @@ namespace kalkulator_1._0
         {
             textBoxInstruction.Text = "A - B = Wynik";
         }
+        #endregion
 
+        #region MauseLeave
         private void sum_MouseLeave(object sender, EventArgs e)
         {
-            textBoxInstruction.Text = instruction;
+            textBoxInstruction.Text = instructionBegin;
         }
 
         private void difference_MouseLeave(object sender, EventArgs e)
         {
-            textBoxInstruction.Text = instruction;
+            textBoxInstruction.Text = instructionBegin;
         }
+        #endregion
 
+        #region Click
         private void sum_Click(object sender, EventArgs e)
 
         {
             float A = float.Parse(textBoxNumberA.Text);
             float B = float.Parse(textBoxNumberB.Text);
-            textBoxScore.Text = "" + MathematicalOperation.Addition(A,B);
+            textBoxScore.Text = "" + MathematicalOperation.Addition(A, B);
         }
 
         private void difference_Click(object sender, EventArgs e)
         {
 
         }
+
+        #endregion
+
+        private void textBoxNumberA_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CharacterRestrictions(e);
+        }
+
+        private void textBoxNumberB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CharacterRestrictions(e);
+        }
+        
+
     }
 }

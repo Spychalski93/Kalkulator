@@ -57,6 +57,7 @@
             this.textBoxNumberA.Name = "textBoxNumberA";
             this.textBoxNumberA.Size = new System.Drawing.Size(100, 20);
             this.textBoxNumberA.TabIndex = 1;
+            this.textBoxNumberA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumberA_KeyPress);
             // 
             // numberB
             // 
@@ -73,6 +74,7 @@
             this.textBoxNumberB.Name = "textBoxNumberB";
             this.textBoxNumberB.Size = new System.Drawing.Size(100, 20);
             this.textBoxNumberB.TabIndex = 1;
+            this.textBoxNumberB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumberB_KeyPress);
             // 
             // sum
             // 
@@ -192,9 +194,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label numberA;
         private System.Windows.Forms.TextBox textBoxNumberA;
         private System.Windows.Forms.Label numberB;
