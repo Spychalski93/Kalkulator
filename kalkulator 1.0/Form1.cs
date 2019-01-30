@@ -12,18 +12,21 @@ namespace kalkulator_1._0
 {
     public partial class Form1 : Form
     {
-        /// <summary>
-        /// Treść instrukcji wyświetlanej domyślnie w <see cref="textBoxInstruction"/>
-        /// </summary>
-        public string instructionBegin = "Najedż kursorem myszy na wybrane działanie" +
-                " i przeczytaj szczegóły. Następnie wpisz dwie liczby i wybierz" +
-                " działanie.";        
 
         public Form1()
         {
             InitializeComponent();
         }
-      
+
+        #region Pola pomocnicze
+        /// <summary>
+        /// Treść instrukcji wyświetlanej domyślnie w <see cref="textBoxInstruction"/>
+        /// </summary>
+        public string instructionBegin = "Najedż kursorem myszy na wybrane działanie" +
+                " i przeczytaj szczegóły. Następnie wpisz dwie liczby i wybierz" +
+                " działanie.";
+        #endregion
+
         #region Metody pomocnicze
         private static void CharacterRestrictions(KeyPressEventArgs e)
         {
@@ -75,6 +78,7 @@ namespace kalkulator_1._0
 
         #endregion
 
+        #region KeyPress
         private void textBoxNumberA_KeyPress(object sender, KeyPressEventArgs e)
         {
             CharacterRestrictions(e);
@@ -84,7 +88,6 @@ namespace kalkulator_1._0
         {
             CharacterRestrictions(e);
         }
-        
-
+        #endregion
     }
 }
