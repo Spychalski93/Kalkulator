@@ -40,6 +40,7 @@
             this.Instruction = new System.Windows.Forms.Label();
             this.Score = new System.Windows.Forms.Label();
             this.textBoxScore = new System.Windows.Forms.TextBox();
+            this.buttonReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // numberA
@@ -117,6 +118,9 @@
             this.product.Text = "*";
             this.product.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.product.UseVisualStyleBackColor = true;
+            this.product.Click += new System.EventHandler(this.product_Click);
+            this.product.MouseEnter += new System.EventHandler(this.product_MouseEnter);
+            this.product.MouseLeave += new System.EventHandler(this.product_MouseLeave);
             // 
             // quotient
             // 
@@ -129,6 +133,9 @@
             this.quotient.Text = "/";
             this.quotient.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.quotient.UseVisualStyleBackColor = true;
+            this.quotient.Click += new System.EventHandler(this.quotient_Click);
+            this.quotient.MouseEnter += new System.EventHandler(this.quotient_MouseEnter);
+            this.quotient.MouseLeave += new System.EventHandler(this.quotient_MouseLeave);
             // 
             // textBoxInstruction
             // 
@@ -153,7 +160,7 @@
             // Score
             // 
             this.Score.AutoSize = true;
-            this.Score.Location = new System.Drawing.Point(33, 158);
+            this.Score.Location = new System.Drawing.Point(4, 164);
             this.Score.Name = "Score";
             this.Score.Size = new System.Drawing.Size(46, 13);
             this.Score.TabIndex = 0;
@@ -161,15 +168,26 @@
             // 
             // textBoxScore
             // 
-            this.textBoxScore.Location = new System.Drawing.Point(87, 155);
+            this.textBoxScore.Location = new System.Drawing.Point(58, 161);
             this.textBoxScore.Name = "textBoxScore";
             this.textBoxScore.Size = new System.Drawing.Size(100, 20);
             this.textBoxScore.TabIndex = 1;
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(190, 161);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(48, 20);
+            this.buttonReset.TabIndex = 5;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // Form1
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(250, 182);
+            this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.textBoxInstruction);
             this.Controls.Add(this.Instruction);
             this.Controls.Add(this.quotient);
@@ -206,6 +224,7 @@
         private System.Windows.Forms.Label Instruction;
         private System.Windows.Forms.Label Score;
         private System.Windows.Forms.TextBox textBoxScore;
+        private System.Windows.Forms.Button buttonReset;
     }
 }
 

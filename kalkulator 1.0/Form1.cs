@@ -31,7 +31,7 @@ namespace kalkulator_1._0
         private static void CharacterRestrictions(KeyPressEventArgs e)
         {
             if (e.KeyChar >= '0' && e.KeyChar <= '9'
-                                        || e.KeyChar == 8 || e.KeyChar == ',')
+                                        || e.KeyChar == 8 || e.KeyChar == ',' || e.KeyChar == '-')
                 e.Handled = false;
             else
                 e.Handled = true;
@@ -46,7 +46,18 @@ namespace kalkulator_1._0
 
         private void difference_MouseEnter(object sender, EventArgs e)
         {
-            textBoxInstruction.Text = "A - B = Wynik";
+            textBoxInstruction.Text = MathematicalOperation.informationSubtraction;
+        }
+
+        private void product_MouseEnter(object sender, EventArgs e)
+        {
+            textBoxInstruction.Text = MathematicalOperation.informationMultiplication;
+
+        }
+        private void quotient_MouseEnter(object sender, EventArgs e)
+        {
+            textBoxInstruction.Text = MathematicalOperation.informationDivision;
+
         }
         #endregion
 
@@ -57,6 +68,16 @@ namespace kalkulator_1._0
         }
 
         private void difference_MouseLeave(object sender, EventArgs e)
+        {
+            textBoxInstruction.Text = instructionBegin;
+        }
+
+        private void product_MouseLeave(object sender, EventArgs e)
+        {
+            textBoxInstruction.Text = instructionBegin;
+        }
+
+        private void quotient_MouseLeave(object sender, EventArgs e)
         {
             textBoxInstruction.Text = instructionBegin;
         }
@@ -73,7 +94,30 @@ namespace kalkulator_1._0
 
         private void difference_Click(object sender, EventArgs e)
         {
+            float A = float.Parse(textBoxNumberA.Text);
+            float B = float.Parse(textBoxNumberB.Text);
+            textBoxScore.Text = "" + MathematicalOperation.Subtraction(A, B);
+        } 
 
+        private void product_Click(object sender, EventArgs e)
+        {
+            float A = float.Parse(textBoxNumberA.Text);
+            float B = float.Parse(textBoxNumberB.Text);
+            textBoxScore.Text = "" + MathematicalOperation.Multiplication(A, B);
+        }
+
+        private void quotient_Click(object sender, EventArgs e)
+        {
+            float A = float.Parse(textBoxNumberA.Text);
+            float B = float.Parse(textBoxNumberB.Text);
+            textBoxScore.Text = "" + MathematicalOperation.Division(A, B);
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            textBoxNumberA.Text = "";
+            textBoxNumberB.Text = "";
+            textBoxScore.Text = "";
         }
 
         #endregion
@@ -88,6 +132,10 @@ namespace kalkulator_1._0
         {
             CharacterRestrictions(e);
         }
+
+
         #endregion
+
+       
     }
 }
